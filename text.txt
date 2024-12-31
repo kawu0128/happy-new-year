@@ -1,0 +1,62 @@
+import time
+import os
+
+# Colors for terminal text
+colors = ["\033[91m", "\033[92m", "\033[93m", "\033[94m", "\033[95m", "\033[96m"]
+reset_color = "\033[0m"
+
+# Clear console function
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# ASCII art for the message
+def display_message():
+    message = r"""
+       *****   *      *  *****   *     *  *****
+      *       * *    * * *       *     * *     
+      *  ***  *  *  *  * *****   ******* *  ***
+      *   *   *   **   * *       *     * *   *  
+       *****   *       *  *****  *     *  *****
+        ____   _       ____  __     __  ______
+       |  _ \ | |     / __ \ \ \   / / |  ____|
+       | |_) || |    | |  | | \ \_/ /  | |__   
+       |  _ < | |    | |  | |  \   /   |  __|  
+       | |_) || |____| |__| |   | |    | |____ 
+       |____/ |______|\____/    |_|    |______|
+    """
+    for color in colors:
+        clear_console()
+        print(f"{color}{message}{reset_color}")
+        time.sleep(0.5)
+
+# Heart animation
+def heart_animation():
+    heart = [
+        "   *****     *****   ",
+        " *******   *******  ",
+        "********* ********* ",
+        " *****************  ",
+        "  ***************   ",
+        "   *************    ",
+        "     *********      ",
+        "       *****        ",
+        "        ***         ",
+        "         *          ",
+    ]
+    for i in range(5):  # Loop for animation
+        clear_console()
+        for line in heart:
+            print(f"{colors[i % len(colors)]}{line.center(50)}{reset_color}")
+        time.sleep(0.3)
+
+# Main function
+def main():
+    clear_console()
+    print("\033[93m✨ Welcoming 2024 with Love! ✨\033[0m".center(50))
+    time.sleep(2)
+    heart_animation()
+    display_message()
+    print("\033[92m💖 Happy New Year! I Love You! 💖\033[0m".center(50))
+
+if __name__ == "__main__":
+    main()
